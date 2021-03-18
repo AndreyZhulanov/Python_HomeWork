@@ -8,6 +8,7 @@ import re
 
 # Задача 1. Найти количество различных элементов массива. Пример: для [1 4 5 1 1 3] ответ 4.
 def count_unique_elems(arr: list[Any]) -> int:
+    # использую множество для подсчета уникальных элементов
     return len(set(arr))
 
 
@@ -17,7 +18,9 @@ def get_10_popular_password(file: str) -> Any:
     pwd_list = []
     with open(file) as f:
         for line in f:
+            # загрузка паролей в список
             pwd_list.append(line.split(';')[-1].rstrip('\n'))
+    # использую коллекцию для подсчета топ10 паролей
     return collections.Counter(pwd_list).most_common(10)
 
 
@@ -30,6 +33,7 @@ def get_10_popular_password(file: str) -> Any:
 # Чем больше разных вариантов будет придумано, тем лучше, но без фанатизма.
 # Для простоты, ограничьте набор доменов верхнего уровня (штуки 4-7 достаточно).
 def censor_link(string: str) -> str:
+    # регулярное выражение для поиска ссылок
     regex = r'(https?:\/\/)?(www\.)?(\w+\.)+([a-z]{2,})+'
     return re.sub(regex, '*****', string)
 
