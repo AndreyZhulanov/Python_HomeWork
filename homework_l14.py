@@ -35,6 +35,7 @@ def get_10_popular_password(file: str) -> Any:
 def censor_link(string: str) -> str:
     # регулярное выражение для поиска ссылок
     regex = r'(https?:\/\/)?(www\.)?(\w+\.)+([a-z]{2,})+'
+    regex = r'(http[s]?:\/\/)?(\w+\.)+((/\w+)+/?)?'
     return re.sub(regex, '*****', string)
 
 
